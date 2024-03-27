@@ -37,6 +37,16 @@ resource "aws_instance" "demo-server" {
   }
 }
 
+resource "aws_eip" "jenkins-master" {
+  instance = aws_instance.demo-server["jenkins-master"].id
+  domain   = "vpc"
+}
+
+resource "aws_eip" "jenkins-slave" {
+  instance = aws_instance.demo-server["jenkins-slave"].id
+  domain   = "vpc"
+}
+
 # resource "aws_instance" "demo-server" {
 #   ami           = "ami-053b0d53c279acc90"
 #   instance_type = "t2.micro"
