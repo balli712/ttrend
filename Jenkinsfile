@@ -9,9 +9,11 @@ pipeline {
     }
 
     stages {
-        stage('hello') {
+        stage('Build Stage') {
             steps {
-                echo 'hello!'
+                echo "----------- build started ----------"
+                sh 'mvn clean deploy'
+                echo "----------- build complted ----------"
             }
         }
     }
