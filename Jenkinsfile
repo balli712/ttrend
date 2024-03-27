@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "----------- build started ----------"
                 // sh 'github webhook works!'
-                sh 'java --version'
+                sh 'sudo ln -sf /usr/lib/jvm/java-11-openjdk-amd64/bin/java /usr/bin/java'
                 sh 'mvn clean deploy'
                 echo "----------- build complted ----------"
             }
@@ -24,6 +24,7 @@ pipeline {
             }  
             
             steps{
+                sh 'sudo ln -sf /usr/lib/jvm/java-17-openjdk-amd64/bin/java /usr/bin/java'
                 withSonarQubeEnv('sonarqube-server'){
                     sh '${scannerHome}/bin/sonar-scanner'
                 }
