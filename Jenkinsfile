@@ -14,11 +14,18 @@ pipeline {
                 echo "----------- build started ----------"
                 // sh 'github webhook works!'
                 sh 'sudo ln -sf /usr/lib/jvm/java-11-openjdk-amd64/bin/java /usr/bin/java'
-                sh 'mvn clean deploy'
+                sh 'mvn clean deploy -Dmaven.test.skip=true'
                 echo "----------- build complted ----------"
             }
         }
-        stage('SonarQube Analysis'){
+        stage("Test Stage"){
+            steps{
+                echo "----------- unit test started ----------"
+                sh 'mvn surefire-report:report'
+                echo "----------- unit test Complted ----------"
+            }
+        }
+        stage('SonarQube Analysis Stage'){
             environment{
                 scannerHome = tool 'sonar-scanner'
             }  
