@@ -12,8 +12,8 @@ pipeline {
         stage('Build Stage') {
             steps {
                 echo "----------- build started ----------"
-                sh 'github webhook works!'
-                sh 'mvn clean deploy'
+                // sh 'github webhook works!'
+                // sh 'mvn clean deploy'
                 echo "----------- build complted ----------"
             }
         }
