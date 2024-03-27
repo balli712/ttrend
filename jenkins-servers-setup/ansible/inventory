@@ -1,12 +1,12 @@
 [jenkins-master]
-13.239.161.132
+54.66.229.161
 
 [jenkins-master:vars]
 ansible_user=ubuntu
 ansible_ssh_private_key_file=../ec2-key.pem
 
 [jenkins-slave]
-54.66.196.228
+13.236.166.237
 
 [jenkins-slave:vars]
 ansible_user=ubuntu

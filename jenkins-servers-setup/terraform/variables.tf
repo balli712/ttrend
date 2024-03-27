@@ -6,9 +6,6 @@ variable "my_ip" {
   type = string
 }
 
-variable "main_instance_type" {
-  type = string
-}
 
 variable "main_vol_size" {
   type = number
