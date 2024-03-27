@@ -14,7 +14,7 @@ pipeline {
                 echo "----------- build started ----------"
                 // sh 'github webhook works!'
                 sh 'java --version'
-                sh 'mvn clean deploy'
+                // sh 'mvn clean deploy'
                 echo "----------- build complted ----------"
             }
         }
