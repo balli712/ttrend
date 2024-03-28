@@ -75,10 +75,10 @@ pipeline {
             }   
         }
         stage(" Docker Build ") {
-            def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend'
-            def version   = '2.0.2'
             steps {
                 script {
+                    def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend'
+                    def version   = '2.0.2'
                     echo '<--------------- Docker Build Started --------------->'
                     app = docker.build(imageName+":"+version)
                     echo '<--------------- Docker Build Ends --------------->'
@@ -86,10 +86,10 @@ pipeline {
             }
         }
 
-        stage (" Docker Publish "){
-            def registry = 'https://xiangli.jfrog.io'
+        stage (" Docker Publish "){  
             steps {
                 script {
+                    def registry = 'https://xiangli.jfrog.io'
                     echo '<--------------- Docker Publish Started --------------->'  
                     docker.withRegistry(registry, 'Jfrog-token'){
                         app.push()
