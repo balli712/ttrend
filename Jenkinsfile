@@ -7,7 +7,7 @@ pipeline {
     environment{
         PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
     }
-
+    def registry = 'https://xiangli.jfrog.io'
     stages {
         stage('Build Stage') {
             steps {
@@ -54,7 +54,6 @@ pipeline {
             steps {
                 script {
                     echo '<--------------- JFrog Publish Started --------------->'
-                    def registry = 'https://xiangli.jfrog.io';
                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"Jfrog-token"
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                     def uploadSpec = """{
@@ -74,6 +73,29 @@ pipeline {
                     echo '<--------------- JFrog Publish Ended --------------->'  
                 }
             }   
+        }
+        stage(" Docker Build ") {
+            def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker/ttrend'
+            def version   = '2.0.2'
+            steps {
+                script {
+                    echo '<--------------- Docker Build Started --------------->'
+                    app = docker.build(imageName+":"+version)
+                    echo '<--------------- Docker Build Ends --------------->'
+                }
+            }
+        }
+
+        stage (" Docker Publish "){
+            steps {
+                script {
+                    echo '<--------------- Docker Publish Started --------------->'  
+                    docker.withRegistry(registry, 'artifactory_token'){
+                        app.push()
+                    }    
+                    echo '<--------------- Docker Publish Ended --------------->'  
+                }
+            }
         }
     }
 }
