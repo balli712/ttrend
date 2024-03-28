@@ -30,7 +30,7 @@ resource "aws_instance" "jenkins-master" {
   root_block_device {
     volume_size = var.main_vol_size
   }
-  
+
   tags = {
     Name = "jenkins-master"
   }
@@ -46,7 +46,7 @@ resource "aws_instance" "jenkins-slave" {
   root_block_device {
     volume_size = var.main_vol_size
   }
-  
+
   tags = {
     Name = "jenkins-slave"
   }
@@ -62,15 +62,15 @@ resource "aws_eip" "jenkins-slave" {
   domain   = "vpc"
 }
 
-# resource "aws_instance" "demo-server" {
-#   ami           = "ami-053b0d53c279acc90"
-#   instance_type = "t2.micro"
-#   key_name      = "dpp"
-#   //security_groups = [ "demo-sg" ]
-#   vpc_security_group_ids = [aws_security_group.demo-sg.id]
-#   subnet_id              = aws_subnet.dpp-public-subnet-01.id
-#   for_each               = toset(["jenkins-master", "build-slave", "ansible"])
-#   tags = {
-#     Name = "${each.key}"
-#   }
+
+# module "sgs" {
+#   source = "/home/xiangli/devops-projects/thrend-k8s/k8s-cluster-setup/sg_eks"
+#   vpc_id = aws_vpc.mtc_vpc.id
+# }
+
+# module "eks" {
+#   source     = "/home/xiangli/devops-projects/thrend-k8s/k8s-cluster-setup/eks"
+#   vpc_id     = aws_vpc.mtc_vpc.id
+#   subnet_ids = [aws_subnet.mtc_public_subnet[0].id, aws_subnet.mtc_public_subnet[1].id, aws_subnet.mtc_public_subnet[2].id]
+#   sg_ids     = module.sgs.security_group_public
 # }
