@@ -8,7 +8,6 @@ pipeline {
         PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
     }
     stages {
-        def registry = 'https://xiangli.jfrog.io'
         stage('Build Stage') {
             steps {
                 echo "----------- build started ----------"
@@ -54,6 +53,7 @@ pipeline {
             steps {
                 script {
                     echo '<--------------- JFrog Publish Started --------------->'
+                    def registry = 'https://xiangli.jfrog.io'
                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"Jfrog-token"
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                     def uploadSpec = """{
@@ -87,6 +87,7 @@ pipeline {
         }
 
         stage (" Docker Publish "){
+            def registry = 'https://xiangli.jfrog.io'
             steps {
                 script {
                     echo '<--------------- Docker Publish Started --------------->'  
