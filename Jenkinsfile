@@ -75,7 +75,7 @@ pipeline {
             }   
         }
         stage(" Docker Build ") {
-            def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker/ttrend'
+            def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend'
             def version   = '2.0.2'
             steps {
                 script {
