@@ -50,5 +50,30 @@ pipeline {
                 }
             }
         }
+        stage("JFrog Artifactory Publish") {
+            def registry = 'https://xiangli.jfrog.io'
+            steps {
+                script {
+                    echo '<--------------- JFrog Publish Started --------------->'
+                    def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"Jfrog-token"
+                    def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
+                    def uploadSpec = """{
+                                            "files": [
+                                                        {
+                                                        "pattern": "jarstaging/(*)",
+                                                        "target": "xianglimaven-libs-release-local/{1}",
+                                                        "flat": "false",
+                                                        "props" : "${properties}",
+                                                        "exclusions": [ "*.sha1", "*.md5"]
+                                                        }
+                                                    ]
+                                        }"""
+                    def buildInfo = server.upload(uploadSpec)
+                    buildInfo.env.collect()
+                    server.publishBuildInfo(buildInfo)
+                    echo '<--------------- JFrog Publish Ended --------------->'  
+                }
+            }   
+        }
     }
 }
