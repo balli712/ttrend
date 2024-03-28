@@ -51,10 +51,10 @@ pipeline {
             }
         }
         stage("JFrog Artifactory Publish") {
-            def registry = 'https://xiangli.jfrog.io';
             steps {
                 script {
                     echo '<--------------- JFrog Publish Started --------------->'
+                    def registry = 'https://xiangli.jfrog.io';
                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"Jfrog-token"
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                     def uploadSpec = """{
