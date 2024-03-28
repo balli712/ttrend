@@ -51,7 +51,7 @@ pipeline {
             }
         }
         stage("JFrog Artifactory Publish") {
-            def registry = 'https://xiangli.jfrog.io'
+            def registry = 'https://xiangli.jfrog.io';
             steps {
                 script {
                     echo '<--------------- JFrog Publish Started --------------->'
