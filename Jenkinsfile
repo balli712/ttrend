@@ -49,7 +49,7 @@ pipeline {
                 }
             }
         }
-        stage("JFrog Artifactory Publish") {
+        stage("JFrog Artifactory Push") {
             steps {
                 script {
                     echo '<--------------- JFrog Publish Started --------------->'
@@ -78,7 +78,7 @@ pipeline {
             steps {
                 script {
                     def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend'
-                    def version   = '2.0.2'
+                    def version   = '2.1.2'
                     echo '<--------------- Docker Build Started --------------->'
                     app = docker.build(imageName+":"+version)
                     echo '<--------------- Docker Build Ends --------------->'
@@ -86,7 +86,7 @@ pipeline {
             }
         }
 
-        stage (" Docker Publish "){  
+        stage (" Docker Push"){  
             steps {
                 script {
                     def registry = 'https://xiangli.jfrog.io'
