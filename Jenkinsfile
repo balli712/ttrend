@@ -7,8 +7,8 @@ pipeline {
     environment{
         PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
     }
-    def registry = 'https://xiangli.jfrog.io'
     stages {
+        def registry = 'https://xiangli.jfrog.io'
         stage('Build Stage') {
             steps {
                 echo "----------- build started ----------"
