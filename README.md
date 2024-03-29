@@ -58,4 +58,6 @@ All the credentials are stored in Jenkins credentails. There are github-cred for
 * Create a customized chart by replacing the files under template with our kubernetes menifest files
 * The kubernetes menifest files including creation of namespace, secrete, deployment, service
 * Deploy the ttrend application by the customized chart and Prometheus from a published repo prometheus-community https://prometheus-community.github.io/helm-charts
-* Modify the service prometheus-grafana to use a loadbalancer and access Grafana board from that AWS LoadBalancer
+* Modify the service prometheus-grafana to type of loadbalancer and access Grafana dashboard from that AWS LoadBalancer
+
+![alt text](image-4.png)
