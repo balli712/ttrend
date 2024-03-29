@@ -29,9 +29,33 @@ A multi-branch pipeline including stages of:
 * Docker build and push the image to JFrog Artifactory
 * Using Helm to create a customized chart with kubernetes menifest files and deploy the app in AWS EKS
 * Using Helm to deploy Prometheus in Kubernetes cluster
+* Maually approve the helm deployment destroy
 
 ![alt text](c77b7cb5771bda42696064e4d10a954.png)
 
 All the credentials are stored in Jenkins credentails. There are github-cred for github personal access, ec2-ssh-key for accessing jenkins-slave, sonar-cred sonarcloud access and Jfrog-token for artifactory repo access.
 
 ![alt text](image-2.png)
+
+## SonarQube
+
+* Install the sonarqube plugin in the Jenkins
+* Configure the sonar server in Jenkins system management and sonar scanner in Jenkins tools
+* Create the project, quality gate and token in the sonarcloud
+
+![alt text](image-1.png)
+
+## JFrog Artifactory
+
+* Install the Artifactory plugin in the Jenkins
+* Create a Maven repositery and a Docker repositery for storing .jar files and Docker image
+* Create a token for Jenkins access and a user for Docker login and pulling used by kubernetes
+
+![alt text](image-3.png)
+
+## Helm
+
+* Create a customized chart by replacing the files under template with our kubernetes menifest files
+* The kubernetes menifest files including creation of namespace, secrete, deployment, service
+* Deploy the ttrend application by the customized chart and Prometheus from a published repo prometheus-community https://prometheus-community.github.io/helm-charts
+* Modify the service prometheus-grafana to use a loadbalancer and access Grafana board from that AWS LoadBalancer
