@@ -4,7 +4,7 @@ Deploy a container application and Prometheus&Grafana to Kubernetes automaticall
 
 ## Ttrend application
 
-This is a small applicaiton which contains main and test folders. The source code is from https://github.com/ravdy/tweet-trend-new.
+This is a small application which contains main and test folders. The source code is from https://github.com/ravdy/tweet-trend-new.
 
 ## Terraform
 
@@ -27,13 +27,13 @@ A multi-branch pipeline including stages of:
 * SonarQube Analysis Stage to detect code vulnerabilities and a Quality Gate to allow or deny
 * Push artifacts (.jar) from building to JFrog Artifactory
 * Docker build and push the image to JFrog Artifactory
-* Using Helm to create a customized chart with kubernetes menifest files and deploy the app in AWS EKS
+* Using Helm to create a customized chart with kubernetes manifest files and deploy the app in AWS EKS
 * Using Helm to deploy Prometheus in Kubernetes cluster
-* Maually approve the helm deployment destroy
+* Manually approve the helm deployment destroy
 
 ![alt text](c77b7cb5771bda42696064e4d10a954.png)
 
-All the credentials are stored in Jenkins credentails. There are github-cred for github personal access, ec2-ssh-key for accessing jenkins-slave, sonar-cred sonarcloud access and Jfrog-token for artifactory repo access.
+All the credentials are stored in Jenkins credentials. There are github-cred for github personal access, ec2-ssh-key for accessing jenkins-slave, sonar-cred sonarcloud access and Jfrog-token for artifactory repo access.
 
 ![alt text](image-2.png)
 
@@ -55,8 +55,8 @@ All the credentials are stored in Jenkins credentails. There are github-cred for
 
 ## Helm
 
-* Create a customized chart by replacing the files under template with our kubernetes menifest files
-* The kubernetes menifest files including creation of namespace, secrete, deployment, service
+* Create a customized chart by replacing the files under template with our kubernetes manifest files
+* The kubernetes manifest files including creation of namespace, secrete, deployment, service
 * Deploy the ttrend application by the customized chart and Prometheus&Grafana from a published repo prometheus-community https://prometheus-community.github.io/helm-charts
 * Modify the service prometheus-grafana to type of loadbalancer and access Grafana dashboard from that AWS LoadBalancer
 
