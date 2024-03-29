@@ -16,8 +16,8 @@ spec:
       imagePullSecrets:
       - name: jfrogdocker
       containers:
-      - name:  valaxy-rtp
-        image: valaxy01.jfrog.io/valaxy-docker/ttrend:2.1.2
+      - name:  xiangli-tthrend
+        image: xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend:2.1.2
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
