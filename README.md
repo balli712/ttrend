@@ -1,6 +1,6 @@
 ## Project Description
 
-Deploy a container application and Prometheus to Kubernetes automatically with tools including Terraform, Ansible, Jenkins, Maven, SonarQube, Artifactory and Helm.
+Deploy a container application and Prometheus&Grafana to Kubernetes automatically with tools including Terraform, Ansible, Jenkins, Maven, SonarQube, Artifactory and Helm.
 
 ## Ttrend application
 
@@ -57,7 +57,7 @@ All the credentials are stored in Jenkins credentails. There are github-cred for
 
 * Create a customized chart by replacing the files under template with our kubernetes menifest files
 * The kubernetes menifest files including creation of namespace, secrete, deployment, service
-* Deploy the ttrend application by the customized chart and Prometheus from a published repo prometheus-community https://prometheus-community.github.io/helm-charts
+* Deploy the ttrend application by the customized chart and Prometheus&Grafana from a published repo prometheus-community https://prometheus-community.github.io/helm-charts
 * Modify the service prometheus-grafana to type of loadbalancer and access Grafana dashboard from that AWS LoadBalancer
 
 ![alt text](image-4.png)
