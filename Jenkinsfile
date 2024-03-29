@@ -108,5 +108,22 @@ pipeline {
                 echo '<--------------- Kubernetes Deploy End --------------->'
             }
         }
+
+        stage('Confirm Destroy'){
+            input {
+                message "Are you sure to destroy the helm-k8s deployment?"
+                ok "Yes"
+            }
+            steps {
+                echo 'Destroy starting.'
+            }
+        }
+
+        stage('Destroy Helm-K8s Deployment') {
+            steps {
+                sh 'helm uninstall helm-ttrend ttrend'
+                sh 'rm -r ttrend'
+            }
+        }
     }
 }
