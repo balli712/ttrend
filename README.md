@@ -1,13 +1,29 @@
-# Ttrend application
-
-This is a small applicaiton which contains main and test folders.  
-Main contains application code.  
-Test contains test cases.  
-It also contains pom.xml which has all dependences and artfact name and version
-
 ## Project Description
 
-Deploy a container application to Kubernetes with tools including Jenkins, Maven, SonarQube, Artifactory and Helm. 
+Deploy a container application to Kubernetes automatically with tools including Terraform, Ansible, Jenkins, Maven, SonarQube, Artifactory and Helm.
+
+## Ttrend application
+
+This is a small applicaiton which contains main and test folders. The source code is from https://github.com/ravdy/tweet-trend-new.
+
+## Terraform
+
+* Terraform cloud is used for Terraform state backend.
+* Terraform is managing Jenkins cluster and AWS EKS cluster
+![alt text](image.png)
+
+## Ansible
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Dockerfile
