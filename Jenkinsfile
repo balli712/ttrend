@@ -101,7 +101,9 @@ pipeline {
 
         stage("Kubernetes Deploy"){
             steps{
-                sh './k8s-cluster-setup/menifastfiles/deploy.sh'
+                echo '<--------------- Kubernetes Deploy Started --------------->'
+                sh 'cd ./k8s-cluster-setup/menifastfiles/ && chmod +x deploy.sh && ./deploy.sh'
+                echo '<--------------- Kubernetes Deploy End --------------->'
             }
         }
     }
