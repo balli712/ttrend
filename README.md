@@ -42,6 +42,7 @@ All the credentials are stored in Jenkins credentials. There are github-cred for
 * Install the sonarqube plugin in the Jenkins
 * Configure the sonar server in Jenkins system management and sonar scanner in Jenkins tools
 * Create the project, quality gate and token in the sonarcloud
+* Create a sonar-project.properties to specify the configuration
 
 ![alt text](image-1.png)
 
