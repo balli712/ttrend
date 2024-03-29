@@ -109,6 +109,16 @@ pipeline {
             }
         }
 
+        stage("Prometheus Setup in K8s"){
+            steps{
+                echo '<--------------- Prometheus Setup in K8s --------------->'
+                sh 'kubectl create namespace monitoring'
+                sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
+                sh 'helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring'
+                echo '<--------------- Prometheus Setup in K8s --------------->'
+            }
+        }
+
         stage('Confirm Destroy'){
             input {
                 message "Are you sure to destroy the helm-k8s deployment?"
@@ -123,6 +133,9 @@ pipeline {
             steps {
                 sh 'helm uninstall helm-ttrend'
                 sh 'rm -r ttrend'
+                sh 'helm uninstall prometheus --namespace monitoring'
+                sh 'helm repo remove prometheus-community'
+                sh 'kubectl delete ns monitoring'
             }
         }
     }
