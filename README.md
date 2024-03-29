@@ -23,7 +23,7 @@ This is a small applicaiton which contains main and test folders. The source cod
 A multi-branch pipeline including stages of:
 
 * Building stage using Maven
-* SonarQube Analysis Stage to detect code vulnerabilities and a Quality Gate to allow or deny
+ * SonarQube Analysis Stage to detect code vulnerabilities and a Quality Gate to allow or deny
 * Push artifacts (.jar) from building to JFrog Artifactory
 * Docker build and push the image to JFrog Artifactory
 * Using Helm to create a customized chart with kubernetes menifest files and deploy the app in AWS EKS
