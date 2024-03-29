@@ -99,10 +99,12 @@ pipeline {
             }
         }
 
-        stage("Kubernetes Deploy"){
+        stage("Kubernetes Deploy Using Helm"){
             steps{
                 echo '<--------------- Kubernetes Deploy Started --------------->'
-                sh 'cd ./k8s-cluster-setup/menifastfiles/ && chmod +x deploy.sh && ./deploy.sh'
+                sh 'helm create ttrend && rm -rf ./ttrend/templates/*'
+                sh 'cp ./k8s-cluster-setup/menifastfiles/*.yaml ./ttrend/templates/'
+                sh 'helm install helm-ttrend'
                 echo '<--------------- Kubernetes Deploy End --------------->'
             }
         }
