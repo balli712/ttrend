@@ -29,6 +29,8 @@ A multi-branch pipeline including stages of:
 * Using Helm to create a customized chart with kubernetes menifest files and deploy the app in AWS EKS
 * Using Helm to deploy Prometheus in Kubernetes cluster
 
+![alt text](c77b7cb5771bda42696064e4d10a954.png)
+
 
 
 
