@@ -104,7 +104,7 @@ pipeline {
                 echo '<--------------- Kubernetes Deploy Started --------------->'
                 sh 'helm create ttrend && rm -rf ./ttrend/templates/*'
                 sh 'cp ./k8s-cluster-setup/menifastfiles/*.yaml ./ttrend/templates/'
-                sh 'helm install helm-ttrend'
+                sh 'helm install helm-ttrend ttrend'
                 echo '<--------------- Kubernetes Deploy End --------------->'
             }
         }
