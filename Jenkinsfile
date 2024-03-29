@@ -121,7 +121,7 @@ pipeline {
 
         stage('Destroy Helm-K8s Deployment') {
             steps {
-                sh 'helm uninstall helm-ttrend ttrend'
+                sh 'helm uninstall helm-ttrend'
                 sh 'rm -r ttrend'
             }
         }
