@@ -49,4 +49,51 @@
     service: 
       name: docker 
       enabled: yes 
+
+  - name: Download kubectl binary
+    get_url:
+      url: "https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl"
+      dest: "/tmp/kubectl"
+
+  - name: Set execute permission on kubectl binary
+    file:
+      path: "/tmp/kubectl"
+      mode: "u+x"
+
+  - name: Move kubectl binary to /usr/local/bin
+    command: mv /tmp/kubectl /usr/local/bin/kubectl
+
+  - name: Install unzip package
+    apt:
+      name: unzip
+      state: present
+
+  - name: Download awscli v2 zip file
+    get_url:
+      url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+      dest: "/tmp/awscliv2.zip"
+
+  - name: Unzip awscli v2 zip file
+    unarchive:
+      src: "/tmp/awscliv2.zip"
+      dest: "/tmp/awscliv2"
+
+  - name: Install awscli v2
+    command: sudo /tmp/awscliv2/aws/install --update
+  
+  - name: Download get_helm.sh script
+    get_url:
+      url: "https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3"
+      dest: "/tmp/get_helm.sh"
+
+  - name: Set execute permission on get_helm.sh script
+    file:
+      path: "/tmp/get_helm.sh"
+      mode: "u+x"
+
+  - name: Run get_helm.sh script
+    command: "/tmp/get_helm.sh"
+
+
+
       
