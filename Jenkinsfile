@@ -78,7 +78,7 @@ pipeline {
             steps {
                 script {
                     def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend'
-                    def version   = '2.1.2'
+                    def version   = '2.1.3'
                     echo '<--------------- Docker Build Started --------------->'
                     app = docker.build(imageName+":"+version)
                     echo '<--------------- Docker Build Ends --------------->'
