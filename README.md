@@ -21,7 +21,8 @@ This is a small applicaiton which contains main and test folders. The source cod
 ## Jenkins
 
 A multi-branch pipeline including stages of:
-    * Building stage using Maven
+
+* Building stage using Maven
     * SonarQube Analysis Stage to detect code vulnerabilities and a Quality Gate to allow or deny
     * Push artifacts (.jar) from building to JFrog Artifactory
     * Docker build and push the image to JFrog Artifactory
