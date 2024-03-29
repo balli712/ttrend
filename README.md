@@ -34,4 +34,4 @@ A multi-branch pipeline including stages of:
 
 All the credentials are stored in Jenkins credentails. There are github-cred for github personal access, ec2-ssh-key for accessing jenkins-slave, sonar-cred sonarcloud access and Jfrog-token for artifactory repo access.
 
-![alt text](image-1.png)
+![alt text](image-2.png)
