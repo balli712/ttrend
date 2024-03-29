@@ -74,7 +74,7 @@ pipeline {
                 }
             }   
         }
-        stage(" Docker Build ") {
+        stage("Docker Build ") {
             steps {
                 script {
                     def imageName = 'xiangli.jfrog.io/xiangli-docker-repo-docker-local/ttrend'
@@ -86,7 +86,7 @@ pipeline {
             }
         }
 
-        stage (" Docker Push"){  
+        stage("Docker Push"){  
             steps {
                 script {
                     def registry = 'https://xiangli.jfrog.io'
@@ -96,6 +96,12 @@ pipeline {
                     }    
                     echo '<--------------- Docker Publish Ended --------------->'  
                 }
+            }
+        }
+
+        stage("Kubernetes Deploy"){
+            steps{
+                sh './k8s-cluster-setup/menifastfiles/deploy.sh'
             }
         }
     }
