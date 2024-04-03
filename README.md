@@ -11,7 +11,7 @@ This is a small application which contains main and test folders. The source cod
 * Terraform cloud is used for Terraform state backend.
 * Terraform is managing Jenkins cluster and AWS EKS cluster.
 
-![alt text](image.png)
+![alt text](./pngs/image.png)
 
 ## Ansible
 
