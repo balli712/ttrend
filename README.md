@@ -31,11 +31,11 @@ A multi-branch pipeline including stages of:
 * Using Helm to deploy Prometheus in Kubernetes cluster
 * Manually approve the helm deployment destroy
 
-![alt text](c77b7cb5771bda42696064e4d10a954.png)
+![alt text](./pngs/c77b7cb5771bda42696064e4d10a954.png)
 
 All the credentials are stored in Jenkins credentials. There are github-cred for github personal access, ec2-ssh-key for accessing jenkins-slave, sonar-cred sonarcloud access and Jfrog-token for artifactory repo access.
 
-![alt text](image-2.png)
+![alt text](./pngs/image-2.png)
 
 ## SonarQube
 
@@ -44,7 +44,7 @@ All the credentials are stored in Jenkins credentials. There are github-cred for
 * Create the project, quality gate and token in the sonarcloud
 * Create a sonar-project.properties to specify the configuration
 
-![alt text](image-1.png)
+![alt text](./pngs/image-1.png)
 
 ## JFrog Artifactory
 
@@ -52,7 +52,7 @@ All the credentials are stored in Jenkins credentials. There are github-cred for
 * Create a Maven repositery and a Docker repositery for storing .jar files and Docker image
 * Create a token for Jenkins access and a user for Docker login and pulling used by kubernetes
 
-![alt text](image-3.png)
+![alt text](./pngs/image-3.png)
 
 ## Helm
 
@@ -61,4 +61,4 @@ All the credentials are stored in Jenkins credentials. There are github-cred for
 * Deploy the ttrend application by the customized chart and Prometheus&Grafana from a published repo prometheus-community https://prometheus-community.github.io/helm-charts
 * Modify the service prometheus-grafana to type of loadbalancer and access Grafana dashboard from that AWS LoadBalancer
 
-![alt text](image-4.png)
+![alt text](./pngs/image-4.png)
