@@ -64,12 +64,12 @@ resource "aws_eip" "jenkins-slave" {
 
 
 module "sgs" {
-  source = "/home/xiangli/devops-projects/thrend-k8s/k8s-cluster-setup/sg_eks"
+  source = "/home/xiangli/devops-projects/ttrend-k8s/k8s-cluster-setup/sg_eks"
   vpc_id = aws_vpc.mtc_vpc.id
 }
 
 module "eks" {
-  source     = "/home/xiangli/devops-projects/thrend-k8s/k8s-cluster-setup/eks"
+  source     = "/home/xiangli/devops-projects/ttrend-k8s/k8s-cluster-setup/eks"
   vpc_id     = aws_vpc.mtc_vpc.id
   subnet_ids = [aws_subnet.mtc_public_subnet[0].id, aws_subnet.mtc_public_subnet[1].id, aws_subnet.mtc_public_subnet[2].id]
   sg_ids     = module.sgs.security_group_public
