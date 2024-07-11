@@ -9,5 +9,10 @@ environment {
       sh 'mvn clean deploy'
     }
   }
+stage("test"){
+    steps{
+      echo "testing weebhook"
+    }
+  }
 }
 }
