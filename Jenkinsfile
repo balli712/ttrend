@@ -12,7 +12,8 @@ environment{
         stage('Build') {
             steps {
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
-		}
+		
+            }
         }
     }
 }
