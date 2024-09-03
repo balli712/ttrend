@@ -65,7 +65,7 @@ pipeline {
     stage ("Deploy k8s manifest files") {
        steps {
         script{
-           sh 'chmod 755 deploy.sh' // Check current directory contents for debugging
+           sh 'chmod 777 deploy.sh' // Check current directory contents for debugging
           sh './deploy.sh'
         }
        }
