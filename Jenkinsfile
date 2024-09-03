@@ -1,5 +1,4 @@
 def registry = 'https://ballisneh.jfrog.io'
-#def version   = '2.1.2'
 pipeline {
     agent {
         node
