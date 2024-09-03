@@ -17,7 +17,6 @@ environment {
                  echo "----------- build complted ----------"
             }
         }   
-      }
 
         stage("Jar Publish"){
            steps {
@@ -44,4 +43,4 @@ environment {
             }
         }   
     } 
-} 
+}
