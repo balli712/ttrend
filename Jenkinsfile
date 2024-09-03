@@ -1,5 +1,6 @@
 def registry = 'https://ballisneh.jfrog.io'
 def imageName = 'ballisneh.jfrog.io/ballisneh-docker-local/ttrend'
+def version   = '2.1.2'
 pipeline {
     agent {
         node {
@@ -50,18 +51,18 @@ pipeline {
       }
     }
 
-            stage (" Docker Publish "){
-        steps {
-            script {
-               echo '<--------------- Docker Publish Started --------------->'  
-                docker.withRegistry(registry, 'artifact-cred'){
-                    app.push()
+    stage (" Docker Publish "){
+      steps {
+        script {
+            echo '<--------------- Docker Publish Started --------------->'  
+            docker.withRegistry(registry, 'artifact-cred'){
+            app.push()
                 }    
                echo '<--------------- Docker Publish Ended --------------->'  
             }
         }
     }
     
-    }
+ }
 
 }
