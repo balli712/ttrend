@@ -1,5 +1,5 @@
 def registry = 'https://ballisneh.jfrog.io'
-def version   = '2.1.2'
+#def version   = '2.1.2'
 pipeline {
     agent {
         node
@@ -20,9 +20,9 @@ environment {
         }   
       }
 
-       stage("Jar Publish") {
-        steps {
-            script {
+        stage("Jar Publish"){
+           steps {
+             script {
                     echo '<--------------- Jar Publish Started --------------->'
                      def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifact-cred"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
