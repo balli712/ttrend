@@ -70,7 +70,7 @@ pipeline {
         }
        }
     }
-    stage(" Deploy ") {
+    stage(" Deploy via helm ") {
        steps {
          script {
             echo '<--------------- Helm Deploy Started --------------->'
